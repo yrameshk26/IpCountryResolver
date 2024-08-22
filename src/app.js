@@ -3,6 +3,7 @@ import { getCountry } from './ipLookupService.js'
 import { clearCache } from './ipCountryCache.js'
 import { validateIPAddress } from '#util.js'
 import logger from './logger.js'
+
 const app = express()
 
 // Clear cache API endpoint

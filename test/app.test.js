@@ -3,6 +3,11 @@ import app from '../src/app.js'
 import { expect } from 'chai'
 import { describe, it } from 'mocha'
 
+const validIp = '8.8.8.8'
+const invalidIp = 'invalid-ip'
+const reservedIp = '0.0.0.0'
+const rateLimitedIps = ['200.201.201.1', '200.201.201.2', '200.201.201.3', '200.201.201.4', '200.201.201.5', '200.201.201.6']
+
 describe('API Endpoints', () => {
 	describe('GET /api/country', () => {
 		it('should return 400 if IP address is not provided', async () => {
@@ -12,40 +17,33 @@ describe('API Endpoints', () => {
 		})
 
 		it('should return 400 for invalid IP address', async () => {
-			const res = await request(app).get('/api/country?ip=invalid-ip')
+			const res = await request(app).get(`/api/country?ip=${invalidIp}`)
 			expect(res.status).to.equal(400)
 			expect(res.body.error).to.equal('Invalid IP Address.')
 		})
 
-		// This will consume one point in the rate limiter in first vendor
 		it('should return the country for a valid IP address', async () => {
-			const res = await request(app).get('/api/country?ip=8.8.8.8')
+			const res = await request(app).get(`/api/country?ip=${validIp}`)
 			expect(res.status).to.equal(200)
 			expect(res.body.country).to.equal('United States')
 		})
 
-		// This should consume one point in each vendor rate limiter
 		it('should return 400 for reserved IP address', async () => {
-			const res = await request(app).get('/api/country?ip=0.0.0.0')
+			const res = await request(app).get(`/api/country?ip=${reservedIp}`)
 			expect(res.status).to.equal(400)
-			expect(res.body.error).to.includes('This is a Reserved IP Address')
+			expect(res.body.error).to.include('This is a Reserved IP Address')
 		})
-	})
 
-	describe('GET /api/country', () => {
-		it('should fail when fetching more than 6(4 + 3) IPs within a time frame (IP Stack is disabled)', async () => {
-			const ipList = ['200.201.201.1', '200.201.201.2', '200.201.201.3', '200.201.201.4', '200.201.201.5', '200.201.201.6']
-
+		it('should return 429 if rate limits are exceeded for multiple IPs', async () => {
 			let lastResponse
 
-			for (let i = 0; i < ipList.length; i++) {
-				lastResponse = await request(app).get(`/api/country?ip=${ipList[i]}`)
+			for (let i = 0; i < rateLimitedIps.length; i++) {
+				lastResponse = await request(app).get(`/api/country?ip=${rateLimitedIps[i]}`)
 				if (i < 3) {
-					// since already previous test cases have consumed 1 request
 					expect(lastResponse.status).to.equal(200)
 				} else {
 					expect(lastResponse.status).to.equal(429)
-					expect(lastResponse.body.error).to.includes('All vendors have exceeded their rate limits.')
+					expect(lastResponse.body.error).to.include('All vendors have exceeded their rate limits.')
 				}
 			}
 		})
