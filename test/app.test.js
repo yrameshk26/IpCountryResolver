@@ -55,7 +55,7 @@ describe('API Endpoints', () => {
 		it('should clear the cache and return success message', async () => {
 			const res = await request(app).delete('/api/clear-cache')
 			expect(res.status).to.equal(200)
-			expect(res.body.message).to.match(/Cache cleared. Items : \d+/)
+			expect(res.body.message).to.match(/Cache cleared. Items: \d+/)
 		})
 	})
 })

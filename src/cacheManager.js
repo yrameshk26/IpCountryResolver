@@ -2,11 +2,21 @@ import { LRUCache } from 'lru-cache'
 
 const caches = {}
 
-// Method to get or create a cache
-const getOrCreateCache = (cacheName, options) => {
-	if (!caches[cacheName]) {
-		caches[cacheName] = new LRUCache(options)
+const defaultOptions = {
+	max: 100,
+	ttl: 1000 * 60 * 60 // 1 hour
+}
+
+const getOrCreateCache = (cacheName, options = {}) => {
+	if (typeof cacheName !== 'string' || !cacheName.trim()) {
+		throw new Error('Invalid cache name provided.')
 	}
+
+	if (!caches[cacheName]) {
+		const cacheOptions = { ...defaultOptions, ...options }
+		caches[cacheName] = new LRUCache(cacheOptions)
+	}
+
 	return caches[cacheName]
 }
 
