@@ -153,15 +153,17 @@ The API documentation is available at /api-docs. This documentation is generated
 
 ## Vendor Management
 
-To ensure flexibility and reliability in determining the country associated with an IP address, the system is designed with robust vendor management features:
+1. [IP Stack](https://ipstack.com/documentation)
 
-1. **Seamless Vendor Integration**:
+2. [IP API](https://ipapi.co/api/)
 
-   - The system is built to easily support adding new IP-to-country vendors. Vendor-specific logic is abstracted into separate modules, which allows new vendors to be integrated with minimal changes to the core system. This design makes it simple to extend the system's capabilities by integrating additional data sources as needed.
+3. [IP GeoLocation](https://ipgeolocation.io/documentation.html)
 
-2. **Fallback Mechanisms**:
+- To ensure flexibility and reliability in determining the country associated with an IP address, the system is designed with robust vendor management features:
 
-   - Reliability is crucial for this service. If one vendor fails to provide a response, the system automatically queries another vendor. This fallback mechanism ensures that the service remains operational even if some vendors experience downtime or failures, thereby providing a robust and dependable service.
+  - **Seamless Vendor Integration**: The system is built to easily support adding new IP-to-country vendors. Vendor-specific logic is abstracted into separate modules, which allows new vendors to be integrated with minimal changes to the core system. This design makes it simple to extend the system's capabilities by integrating additional data sources as needed.
+
+  - **Fallback Mechanisms**: Reliability is crucial for this service. If one vendor fails to provide a response, the system automatically queries another vendor. This fallback mechanism ensures that the service remains operational even if some vendors experience downtime or failures, thereby providing a robust and dependable service.
 
 ## External Libraries
 
