@@ -152,7 +152,7 @@ To ensure flexibility and reliability in determining the country associated with
 
 This project utilizes several external libraries to enhance its functionality and maintainability:
 
-1. Express: A fast, unopinionated, minimalist web framework for Node.js, used to set up the API endpoints and handle HTTP requests and responses.
+1. **Express**: A fast, unopinionated, minimalist web framework for Node.js, used to set up the API endpoints and handle HTTP requests and responses.
 2. Lru-cache: Implements a Least Recently Used (LRU) caching strategy to efficiently manage memory usage and improve the performance of IP address lookups.
 3. Axios: A promise-based HTTP client for making requests to external IP-to-country vendors. It simplifies making API calls and handling responses.
 4. Mocha: A feature-rich JavaScript test framework running on Node.js, used for writing and running tests.
