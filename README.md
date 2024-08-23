@@ -153,6 +153,8 @@ The API documentation is available at /api-docs. This documentation is generated
 
 ## Vendor Management
 
+Here are the vendors currently used by the service:
+
 1. [IP Stack](https://ipstack.com/documentation)
 
 2. [IP API](https://ipapi.co/api/)
