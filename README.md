@@ -100,6 +100,8 @@ To run tests, use the following command:
 npm run test
 ```
 
+Tests are written using Mocha, Chai, and Supertest. They cover all happy path scenarios as well as various error conditions, ensuring robust and reliable API behavior.
+
 **Postman Collection**
 
 A Postman collection is included with the project, containing all the API endpoints. The collection includes response validation for different valid and error scenarios, making it easier to test and verify the behavior of the API under various conditions. You can import the collection into Postman and use it to interact with the API.
@@ -117,8 +119,6 @@ To automatically fix linting errors:
 ```
 npm run lint:fix
 ```
-
-Tests are written using Mocha, Chai, and Supertest. They cover all happy path scenarios as well as various error conditions, ensuring robust and reliable API behavior.
 
 ## Documentation
 
