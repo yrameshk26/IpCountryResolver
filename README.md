@@ -79,10 +79,25 @@ The server will be available at http://localhost:3000.
    - _Returns the country name associated with the provided IP address._
 
    - **Responses**:
+
      - 200 OK: { "country": "<country-name>" }
      - 400 Bad Request: { "error": "<error-message>" }
      - 429 Too Many Requests: { "error": "<error-message>" }
      - 500 Internal Server Error: { "error": "Failed to get country information" }
+
+   - **Example Request**:
+
+   ```
+   GET http://localhost:3000/api/country?ip=57.72.88.0
+   ```
+
+   - **Example Response**:
+
+   ```
+   {
+    "country": "Sri Lanka"
+   }
+   ```
 
 2. **Clear Cache**
 
