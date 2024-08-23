@@ -214,7 +214,7 @@ As this API service scales up and moves towards production readiness, several im
 
    - **Batch IP Lookup Endpoint**: Develop an additional API endpoint that accepts a list of IP addresses and returns a list of countries for each IP. This would allow clients to query multiple IP addresses in a single request, improving efficiency and reducing the number of individual API calls needed.
 
-   - Optimized Processing: Ensure that the batch processing is optimized to handle large numbers of IP addresses efficiently, and that results are returned in a structured format for ease of use.
+   - **Optimized Processing**: Ensure that the batch processing is optimized to handle large numbers of IP addresses efficiently, and that results are returned in a structured format for ease of use.
 
 2. **Distributed Systems:**
 
