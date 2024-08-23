@@ -127,7 +127,7 @@ Tests are written using Mocha, Chai, and Supertest. They cover all happy path sc
 
 **Postman Collection**
 
-A Postman collection is included with the project, containing all the API endpoints. The collection includes response validation for different valid and error scenarios, making it easier to test and verify the behavior of the API under various conditions. You can import the collection into Postman and use it to interact with the API.
+A Postman collection (`IP To Country API.postman_collection.json`) is included with the project, containing all the API endpoints. The collection includes response validation for different valid and error scenarios, making it easier to test and verify the behavior of the API under various conditions. You can import the collection into Postman and use it to interact with the API.
 
 ## Linting
 
