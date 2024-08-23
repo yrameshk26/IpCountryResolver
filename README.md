@@ -2,10 +2,11 @@
 
 ## Overview
 
-This project provides an API service to determine the country associated with a given IP address. It features caching for performance and includes rate limiting to handle API quotas.
+This service is built with Node.js and provides an API to determine the country associated with a given IP address. It features caching for performance and includes rate limiting to handle API quotas.
 
 ## Table of Contents
 
+- [Prerequisites](#Prerequisites)
 - [Installation](#installation)
 - [Usage](#usage)
 - [API Endpoints](#api-endpoints)
@@ -17,6 +18,13 @@ This project provides an API service to determine the country associated with a 
 - [External Libraries](#external-libraries)
 - [Current Limitations](#current-limitations)
 - [Future Improvements for Production Readiness](#future-improvements-for-production-readiness)
+
+## Prerequisites
+
+Before running the app, make sure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (version 20.11.1 or higher)
+- [npm](https://www.npmjs.com/) (Node package manager, comes with Node.js)
 
 ## Installation
 
