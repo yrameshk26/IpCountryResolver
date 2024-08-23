@@ -1,7 +1,5 @@
 # IP to Country API
 
-## New Markdown
-
 ## Overview
 
 This project provides an API service to determine the country associated with a given IP address. It features caching for performance and includes rate limiting to handle API quotas.
