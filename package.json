@@ -22,8 +22,6 @@
 		"#*": "./src/*"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.25.2",
-		"@babel/preset-env": "^7.25.4",
 		"@babel/register": "^7.24.6",
 		"chai": "^5.1.1",
 		"eslint": "8.56.0",
